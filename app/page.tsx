@@ -1,133 +1,201 @@
 import { brandConfig } from '@/lib/brand-config'
-import { getDiscoveryRouteReceipt } from '@/lib/discovery-routing'
 
-const operatingLanes = [
-  'Technical operating body',
-  'AI automation and workflow engineering',
-  'App builds and integrations',
-  'Platform migration and rescue',
-  'Deployment receipts',
-  'Genesis AI technical support',
+const experienceHighlights = [
+  {
+    title: 'Make the technical path feel calm',
+    body: 'Clients should immediately see that the system has a method: diagnose, scope, build, ship, prove, and improve.',
+  },
+  {
+    title: 'Turn messy work into visible progress',
+    body: 'Automation, app builds, integrations, migration, and rescue work are framed as a guided journey with owners and proof.',
+  },
+  {
+    title: 'Show receipts before the work gets complicated',
+    body: 'Build gates, delivery notes, technical status, and next actions are presented as part of the experience, not hidden in a backend.',
+  },
 ]
 
-const bodyRoutes = [
+const clientActions = [
   {
-    label: 'About',
-    href: '/about',
-    proof: 'Defines LIFTStack as the engineering and implementation arm for systems that make strategy executable.',
-  },
-  {
-    label: 'Services',
-    href: '/services',
-    proof: 'Clarifies implementation, integration, automation, architecture, and managed execution lanes.',
-  },
-  {
-    label: 'Solutions',
+    label: 'Explore solutions',
     href: '/solutions',
-    proof: 'Maps repeatable technical lanes for automation, app builds, workflow engineering, migration, and rescue.',
+    kicker: 'Technical lanes',
+    title: 'Find the right build path.',
+    body: 'Review automation, workflow engineering, app builds, integration, migration, and technical rescue lanes.',
   },
   {
-    label: 'Automation',
-    href: '/automation',
-    proof: 'Focuses workflows, triggers, approvals, monitoring, owners, and rollback posture.',
+    label: 'Enter the dashboard',
+    href: '/dashboard',
+    kicker: 'Technical command',
+    title: 'Preview delivery visibility.',
+    body: 'See how technical work can be organized around status, receipts, blockers, implementation state, and next action.',
   },
   {
-    label: 'Technical Rescue',
-    href: '/technical-rescue',
-    proof: 'Creates a controlled triage, stabilization, fix, and prevention path for broken systems.',
-  },
-  {
-    label: 'Deployment Ledger',
-    href: '/deployment-ledger',
-    proof: 'Prepares build gates, deployment proof, smoke checks, and follow-up actions.',
-  },
-  {
-    label: 'Discovery',
+    label: 'Start discovery',
     href: '/discovery-wizard',
-    proof: 'Prepares app-owned technical intake while preserving the approved WordPress discovery entry.',
+    kicker: 'Guided next step',
+    title: 'Start with the right system context.',
+    body: 'Use LIFTStack discovery when the need is technical implementation, automation, rescue, integration, or migration.',
   },
 ]
 
-const buildSteps = [
-  'Foundation: brand config, routing guard, health API, and receipt contract.',
-  'Body: public technical operating pages for the non-home business app experience.',
-  'Intake: LIFTStack-specific technical discovery schema and API receipt generation.',
-  'Sync: Command Center receipt handoff and Genesis AI technical classification.',
-  'Ledgers: deployment, implementation, automation, rescue, and managed-service proof surfaces.',
+const journeyPreview = [
+  'Assess',
+  'Discover',
+  'Scope',
+  'Build',
+  'Ship',
+  'Prove',
+]
+
+const deliveryCards = [
+  { name: 'Automation', role: 'Reduce drag', detail: 'Workflow triggers, approvals, handoffs, exceptions, and monitoring that save time without creating hidden risk.' },
+  { name: 'Implementation', role: 'Ship systems', detail: 'Apps, internal tools, integrations, and cloud services delivered with visible build gates and status.' },
+  { name: 'Technical Rescue', role: 'Stabilize fast', detail: 'Triage the issue, contain risk, repair the workflow, and leave behind a prevention plan.' },
+  { name: 'Delivery Ledger', role: 'Prove the work', detail: 'Track what shipped, where it lives, what changed, which gate passed, and what needs attention next.' },
+  { name: 'Genesis AI', role: 'Prioritize action', detail: 'Prepare technical summaries, classification, risk notes, architecture hints, and next-action recommendations.' },
+  { name: 'Command Center', role: 'Surface proof', detail: 'Keep technical status, receipts, risks, and blockers visible to the operator layer.' },
 ]
 
 export default function HomePage() {
-  const routeReceipt = getDiscoveryRouteReceipt()
-
   return (
-    <main>
-      <section className="panel">
-        <span className="badge">{brandConfig.role}</span>
-        <h1>{brandConfig.name} operating body</h1>
-        <p className="muted" style={{ maxWidth: 820 }}>
-          WordPress remains the public home, trust, SEO, and discovery-entry layer. This GitHub/Railway app now becomes the controlled body for technical pages, implementation posture, deployment proof, automation receipts, and Genesis AI connection.
-        </p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, marginTop: 24 }}>
-          <a className="button" href="/about">
-            Open technical body
+    <main className="experience-main">
+      <section className="experience-hero">
+        <nav className="experience-nav" aria-label="LIFTStack experience navigation">
+          <a className="experience-brand" href="/">
+            LIFTStack
           </a>
-          <a className="button button-secondary" href="/discovery-wizard">
-            Open technical discovery shell
-          </a>
-          <a className="button" href={brandConfig.commandCenterBrandPath}>
-            Open Command Center brand surface
-          </a>
+          <div className="experience-nav-links">
+            <a href="/solutions">Solutions</a>
+            <a href="/automation">Automation</a>
+            <a href="/technical-rescue">Rescue</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/portal">Portal</a>
+            <a href="/discovery-wizard">Discovery</a>
+          </div>
+        </nav>
+
+        <div className="experience-hero-grid">
+          <div className="experience-hero-copy">
+            <span className="experience-pill">{brandConfig.role}</span>
+            <h1>Technical systems that feel clear before they feel complex.</h1>
+            <p>
+              LIFTStack helps leaders turn scattered tools, stalled builds, automation ideas, and technical problems into clean systems with visible progress and proof.
+            </p>
+            <div className="experience-actions">
+              <a className="button experience-primary" href="/dashboard">
+                Enter technical dashboard
+              </a>
+              <a className="button button-secondary" href="/solutions">
+                Explore solutions
+              </a>
+              <a className="button experience-ghost" href="/discovery-wizard">
+                Start discovery
+              </a>
+            </div>
+          </div>
+
+          <aside className="experience-command-card" aria-label="LIFTStack technical preview">
+            <div className="command-card-topline">Technical delivery preview</div>
+            <div className="command-orbit">
+              <span>Scope</span>
+              <span>Ship</span>
+              <span>Proof</span>
+            </div>
+            <div className="command-card-metric">
+              <strong>6</strong>
+              <span>technical checkpoints from assessment to delivery proof</span>
+            </div>
+            <div className="command-card-metric">
+              <strong>1</strong>
+              <span>clear delivery lane for automation, build, migration, integration, or rescue</span>
+            </div>
+            <a className="command-card-link" href="/portal">
+              Preview client portal →
+            </a>
+          </aside>
         </div>
       </section>
 
-      <section className="grid grid-3" style={{ marginTop: 18 }}>
-        {operatingLanes.map((lane) => (
-          <article className="card" key={lane}>
-            <h2>{lane}</h2>
-            <p className="muted">Controlled from GitHub, routed through LIFTStack discovery, and governed by technical delivery receipts.</p>
-          </article>
-        ))}
+      <section className="experience-section">
+        <div className="experience-section-heading">
+          <span className="experience-pill">What clients should feel</span>
+          <h2>Technical confidence before the first scope call.</h2>
+        </div>
+        <div className="experience-grid-3">
+          {experienceHighlights.map((item) => (
+            <article className="experience-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
-      <section className="panel" style={{ marginTop: 18 }}>
-        <span className="badge">Priority One</span>
-        <h2 style={{ marginTop: 16 }}>LIFTStack technical body routes</h2>
-        <p className="muted" style={{ maxWidth: 780 }}>
-          These are the first non-home technical body routes moved into the app. They are intentionally public, no-schema, and no-cutover so the delivery body can mature safely before WordPress canonical changes.
-        </p>
-        <div className="grid grid-3" style={{ marginTop: 16 }}>
-          {bodyRoutes.map((route) => (
-            <a className="card body-route-card" href={route.href} key={route.href}>
-              <strong>{route.label}</strong>
-              <p className="muted">{route.proof}</p>
+      <section className="experience-section split-section">
+        <div>
+          <span className="experience-pill">Delivery journey</span>
+          <h2>From messy system to visible progress.</h2>
+          <p className="experience-muted">
+            The experience turns technical work into a path clients can understand: assess the problem, discover context, scope the work, build, ship, and prove what changed.
+          </p>
+        </div>
+        <div className="journey-rail">
+          {journeyPreview.map((step, index) => (
+            <div className="journey-node" key={step}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{step}</strong>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="experience-section">
+        <div className="experience-section-heading">
+          <span className="experience-pill">Choose your path</span>
+          <h2>The right technical door should be obvious.</h2>
+        </div>
+        <div className="experience-grid-3">
+          {clientActions.map((action) => (
+            <a className="experience-card action-card" href={action.href} key={action.href}>
+              <span>{action.kicker}</span>
+              <h3>{action.title}</h3>
+              <p>{action.body}</p>
+              <strong>{action.label} →</strong>
             </a>
           ))}
         </div>
       </section>
 
-      <section className="panel" style={{ marginTop: 18 }}>
-        <h2>Discovery routing guard</h2>
-        <p className="muted">
-          LIFTStack prospects must not cross-route into Altrium, Schiele, Genesis, Circle of Growth, or BearSchiele by default. Current approved route: <code>{routeReceipt.discoveryUrl}</code>
-        </p>
-        <div className="grid grid-3" style={{ marginTop: 16 }}>
-          {brandConfig.allowedIntents.map((intent) => (
-            <div className="card" key={intent}>
-              <strong>{intent}</strong>
-            </div>
+      <section className="experience-section">
+        <div className="experience-section-heading">
+          <span className="experience-pill">How delivery feels</span>
+          <h2>Clients should see the system forming around their problem.</h2>
+        </div>
+        <div className="ecosystem-grid">
+          {deliveryCards.map((card) => (
+            <article className="ecosystem-card" key={card.name}>
+              <span>{card.role}</span>
+              <h3>{card.name}</h3>
+              <p>{card.detail}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="panel" style={{ marginTop: 18 }}>
-        <h2>Build sequence</h2>
-        <div className="grid">
-          {buildSteps.map((step, index) => (
-            <div className="card" key={step}>
-              <strong>Phase {index + 1}</strong>
-              <p className="muted">{step}</p>
-            </div>
-          ))}
+      <section className="experience-final panel">
+        <span className="experience-pill">Ready to clean up the system</span>
+        <h2>Start with context. Build with discipline. Ship with proof.</h2>
+        <p>
+          LIFTStack is built for leaders who need technology to become leverage, not another source of confusion.
+        </p>
+        <div className="experience-actions">
+          <a className="button experience-primary" href="/discovery-wizard">
+            Start LIFTStack discovery
+          </a>
+          <a className="button button-secondary" href="/dashboard">
+            View technical dashboard
+          </a>
         </div>
       </section>
     </main>
